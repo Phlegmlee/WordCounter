@@ -1,6 +1,8 @@
-<img width="256" height="256" alt="logo image" src="Word_Counter.png" />
+<p align="center">
+<img width="640" height="320" alt="logo image" src="WordCounter_banner.png" />
+</p>
 
-# Word Counter
+---
 
 A simple word count tracker for writers. Enter your manuscript/document word count on any given day and it will display how many words were written.
 
