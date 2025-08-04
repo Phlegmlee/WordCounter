@@ -7,3 +7,5 @@ A simple word count tracker for writers. Enter your manuscript/document word cou
 Saves the wordcount and log to separate files that are stored within the applications directory and can be modified externally to the application.
 
 The lightweight, single file, modular executable can be placed and ran from anywhere on your computer. The files it creates are stored in the same directory as the executable.
+
+This application can be copied and used in the same directory as your writing projects so the log and word count files are individual to the project.
