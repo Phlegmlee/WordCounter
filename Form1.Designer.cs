@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             WordcountLabel = new Label();
             EnterButton = new Button();
             tallyBox = new ListBox();
@@ -36,7 +37,6 @@
             wordCountNum = new NumericUpDown();
             totalLabel = new Label();
             totalWordCount = new NumericUpDown();
-            openFileDialog = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)wordCountNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalWordCount).BeginInit();
             SuspendLayout();
@@ -123,10 +123,6 @@
             totalWordCount.ThousandsSeparator = true;
             totalWordCount.Controls[0].Visible = false;
             // 
-            // openFileDialog
-            // 
-            openFileDialog.FileName = "openFileDialog";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -142,6 +138,7 @@
             Controls.Add(EnterButton);
             Controls.Add(WordcountLabel);
             Font = new Font("Segoe UI", 9F);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "WordCounter";
             Load += Form1_Load;
@@ -160,6 +157,5 @@
         private NumericUpDown wordCountNum;
         private Label totalLabel;
         private NumericUpDown totalWordCount;
-        private OpenFileDialog openFileDialog;
     }
 }

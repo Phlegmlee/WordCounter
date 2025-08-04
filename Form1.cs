@@ -59,6 +59,7 @@ namespace WordCounter
             if (File.Exists(path))
             {
                 File.AppendAllText(path, line_to_save);
+
                 if (overwrite)
                 {
                     File.WriteAllText(path, line_to_save);
