@@ -121,6 +121,7 @@
             totalWordCount.TabIndex = 11;
             totalWordCount.TabStop = false;
             totalWordCount.ThousandsSeparator = true;
+            totalWordCount.Controls[0].Visible = false;
             // 
             // openFileDialog
             // 
