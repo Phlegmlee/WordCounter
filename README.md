@@ -8,6 +8,14 @@ The lightweight, single file, modular executable can be placed and ran from anyw
 
 This application can be copied and used in the same directory as your writing projects so the log and word count files are individual to the project.
 
+## SIMPLE
+
 <img width="466" height="513" alt="image" src="https://github.com/user-attachments/assets/dcac896a-b272-4b42-8014-ca0ae2c20ebc" />
+
+## SMALL
+
+<img width="633" height="239" alt="image" src="https://github.com/user-attachments/assets/02273ede-62e2-4554-9a4b-265dc26de909" />
+
+## LIGHTWEIGHT
 
 <img width="1121" height="52" alt="image" src="https://github.com/user-attachments/assets/e86a5f20-b20a-4375-adaf-3ccdb086e38e" />
