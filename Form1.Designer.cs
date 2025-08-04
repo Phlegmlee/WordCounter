@@ -28,16 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            newToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
-            saveToolStripMenuItem = new ToolStripMenuItem();
-            saveAsToolStripMenuItem = new ToolStripMenuItem();
-            closeToolStripMenuItem = new ToolStripMenuItem();
-            settingsToolStripMenuItem = new ToolStripMenuItem();
-            editToolStripMenuItem = new ToolStripMenuItem();
-            viewToolStripMenuItem = new ToolStripMenuItem();
             WordcountLabel = new Label();
             EnterButton = new Button();
             tallyBox = new ListBox();
@@ -47,83 +37,14 @@
             totalLabel = new Label();
             totalWordCount = new NumericUpDown();
             openFileDialog = new OpenFileDialog();
-            menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)wordCountNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalWordCount).BeginInit();
             SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 1, 0, 1);
-            menuStrip1.Size = new Size(464, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, closeToolStripMenuItem, settingsToolStripMenuItem });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 22);
-            fileToolStripMenuItem.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(180, 22);
-            newToolStripMenuItem.Text = "New | CTRL + N";
-            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
-            // 
-            // openToolStripMenuItem
-            // 
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(180, 22);
-            openToolStripMenuItem.Text = "Open | CTRL + O";
-            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
-            // 
-            // saveToolStripMenuItem
-            // 
-            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(180, 22);
-            saveToolStripMenuItem.Text = "Save | CTRL + S";
-            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(180, 22);
-            saveAsToolStripMenuItem.Text = "Save As";
-            // 
-            // closeToolStripMenuItem
-            // 
-            closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            closeToolStripMenuItem.Size = new Size(180, 22);
-            closeToolStripMenuItem.Text = "Close | CTRL + Q";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(180, 22);
-            settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // editToolStripMenuItem
-            // 
-            editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(39, 22);
-            editToolStripMenuItem.Text = "Edit";
-            // 
-            // viewToolStripMenuItem
-            // 
-            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            viewToolStripMenuItem.Size = new Size(44, 22);
-            viewToolStripMenuItem.Text = "View";
-            // 
             // WordcountLabel
             // 
             WordcountLabel.AutoSize = true;
-            WordcountLabel.Location = new Point(197, 44);
+            WordcountLabel.Location = new Point(197, 16);
             WordcountLabel.Margin = new Padding(2, 0, 2, 0);
             WordcountLabel.Name = "WordcountLabel";
             WordcountLabel.Size = new Size(67, 15);
@@ -132,7 +53,7 @@
             // 
             // EnterButton
             // 
-            EnterButton.Location = new Point(206, 133);
+            EnterButton.Location = new Point(206, 105);
             EnterButton.Margin = new Padding(2);
             EnterButton.Name = "EnterButton";
             EnterButton.Size = new Size(51, 24);
@@ -145,16 +66,16 @@
             // 
             tallyBox.FormattingEnabled = true;
             tallyBox.ItemHeight = 15;
-            tallyBox.Location = new Point(11, 176);
+            tallyBox.Location = new Point(11, 131);
             tallyBox.Margin = new Padding(2);
             tallyBox.Name = "tallyBox";
-            tallyBox.Size = new Size(442, 244);
+            tallyBox.Size = new Size(442, 289);
             tallyBox.TabIndex = 4;
             // 
             // DateLabel
             // 
             DateLabel.AutoSize = true;
-            DateLabel.Location = new Point(216, 86);
+            DateLabel.Location = new Point(216, 58);
             DateLabel.Margin = new Padding(2, 0, 2, 0);
             DateLabel.Name = "DateLabel";
             DateLabel.Size = new Size(31, 15);
@@ -164,7 +85,7 @@
             // dateTimePicker
             // 
             dateTimePicker.Font = new Font("Segoe UI", 9F);
-            dateTimePicker.Location = new Point(134, 103);
+            dateTimePicker.Location = new Point(134, 75);
             dateTimePicker.Margin = new Padding(2);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.Size = new Size(198, 23);
@@ -173,8 +94,8 @@
             // wordCountNum
             // 
             wordCountNum.AllowDrop = true;
-            wordCountNum.Location = new Point(172, 62);
-            wordCountNum.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            wordCountNum.Location = new Point(172, 34);
+            wordCountNum.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             wordCountNum.Name = "wordCountNum";
             wordCountNum.Size = new Size(120, 23);
             wordCountNum.TabIndex = 8;
@@ -193,7 +114,7 @@
             // 
             totalWordCount.InterceptArrowKeys = false;
             totalWordCount.Location = new Point(12, 440);
-            totalWordCount.Maximum = new decimal(new int[] { 1410065407, 2, 0, 0 });
+            totalWordCount.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             totalWordCount.Name = "totalWordCount";
             totalWordCount.ReadOnly = true;
             totalWordCount.Size = new Size(120, 23);
@@ -219,14 +140,10 @@
             Controls.Add(tallyBox);
             Controls.Add(EnterButton);
             Controls.Add(WordcountLabel);
-            Controls.Add(menuStrip1);
             Font = new Font("Segoe UI", 9F);
-            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "WordCounter";
             Load += Form1_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)wordCountNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalWordCount).EndInit();
             ResumeLayout(false);
@@ -234,17 +151,6 @@
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem newToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem saveToolStripMenuItem;
-        private ToolStripMenuItem saveAsToolStripMenuItem;
-        private ToolStripMenuItem closeToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private ToolStripMenuItem settingsToolStripMenuItem;
         private Label WordcountLabel;
         private Button EnterButton;
         private ListBox tallyBox;
