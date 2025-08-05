@@ -9,16 +9,21 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnSubmitClicked(object sender, EventArgs e)
         {
             count++;
 
             if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+                SubmitBtn.Text = $"Clicked {count} time";
             else
-                CounterBtn.Text = $"Clicked {count} times";
+                SubmitBtn.Text = $"Clicked {count} times";
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            SemanticScreenReader.Announce(SubmitBtn.Text);
+        }
+
+        public class Log
+        {
+            public string Words = "MEEP MORP";
         }
     }
 
