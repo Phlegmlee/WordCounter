@@ -1,5 +1,5 @@
 <p align="center">
-<img width="640" height="320" alt="logo image" src="WordCounter_banner-bg.png" />
+<img width="640" height="320" alt="logo image" src="Resources/Images/wordcounter_banner_bg.png" />
 </p>
 
 ---
@@ -16,16 +16,16 @@ This application can be copied and used in the same directory as your writing pr
 
 Enter your document/manuscript word count, the date, and press enter.
 
-<img width="466" height="513" alt="image" src="https://github.com/user-attachments/assets/dcac896a-b272-4b42-8014-ca0ae2c20ebc" />
+IMAGE HERE
 
 ## SMALL
 
 Application is less than 170 MB.
 
-<img width="633" height="239" alt="image" src="https://github.com/user-attachments/assets/02273ede-62e2-4554-9a4b-265dc26de909" />
+IMAGE HERE
 
 ## LIGHTWEIGHT
 
 Less than 8 MB of ram usage.
 
-<img width="1121" height="52" alt="image" src="https://github.com/user-attachments/assets/e86a5f20-b20a-4375-adaf-3ccdb086e38e" />
+IMAGE HERE
