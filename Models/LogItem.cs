@@ -1,10 +1,12 @@
-﻿namespace WordCounter.Models
+﻿using System.Xml.Serialization;
+
+namespace WordCounter.Models
 {
-    internal class LogItem
+    public class LogItem
     {
         public long WordCount { get; set; }
         public long WordDiff { get; set; }
-        public string DateValue { get; set; }
-        public string NotesValue { get; set; }
+        public required string DateValue { get; set; }
+        public required string NotesValue { get; set; }
     }
 }
