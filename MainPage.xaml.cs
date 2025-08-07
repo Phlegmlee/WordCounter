@@ -1,5 +1,4 @@
-﻿using System.IO;
-using WordCounter.Models;
+﻿using WordCounter.Models;
 
 
 namespace WordCounter
@@ -8,8 +7,8 @@ namespace WordCounter
     {
         const string log_file = "WordCounter_log.txt";
         const string wc_file = "WordCounter_wc.txt";
-        string log_path = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, log_file);
-        string wc_path = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, wc_file);
+        string log_path = Path.Combine(FileSystem.Current.AppDataDirectory, log_file);
+        string wc_path = Path.Combine(FileSystem.Current.AppDataDirectory, wc_file);
         long previous_word_total = 0;
 
 
@@ -18,13 +17,12 @@ namespace WordCounter
             InitializeComponent();
             Loaded += MainPage_Loaded;
 
-            var logItems = new List<LogItem>
+            var list = new List<LogItem>
             {
-                new LogItem { WordCount = "9999999", WordDiff = "9999999", DateValue = "2025-08-05 19:30", NotesValue = ""},
-                new LogItem { WordCount = "959", WordDiff = "699", DateValue = "2025-08-05 19:30", NotesValue = ""}
+               new LogItem { WordCount = 0, WordDiff = 0, DateValue = "", NotesValue = log_path }
             };
 
-            listView.ItemsSource = logItems;
+            listView.ItemsSource = list;
         }
 
         private void MainPage_Loaded(object? sender, EventArgs e)
@@ -38,7 +36,7 @@ namespace WordCounter
                 var log = File.ReadAllLines(log_path);
                 foreach (string s in log)
                 {
-                    // Parse file, insert data into LogItem somehow????????
+                    //list.Add(logItem);
                 }
             }
 
@@ -56,8 +54,30 @@ namespace WordCounter
             }
         }
 
+       private static void SaveToFile(string path, string logItem, bool overwrite = false)
+        {
+            if (File.Exists(path))
+            {
+                File.AppendAllText(path, logItem);
+
+                if (overwrite)
+                {
+                    File.WriteAllText(path, logItem);
+                }
+            }
+        }
+
         private void OnSubmitClicked(object sender, EventArgs e)
         {
+            string entryText = entry.Text;
+            long count = long.Parse(entryText);
+            long diff = count - previous_word_total;
+            string date = datePicker.Date.ToString();
+
+            // TODO: Find a way to save the data that can be extracted into a LogItem
+
+            //SaveToFile(log_path, );
+            //list.Add(newListItem);
 
         }
 

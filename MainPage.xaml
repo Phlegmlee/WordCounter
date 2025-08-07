@@ -5,7 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="20,0"
+            Padding="20"
             Spacing="15">
             <Image
                 Source="wordcounter_banner.png"
@@ -14,7 +14,9 @@
                 SemanticProperties.Description="WordCounter Logo, a W with 1 0 1 on top. Below the logo are the words Word Counter." />
 
             <Entry 
-                Placeholder="Enter word count or notes"
+                x:Name="entry"
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="Enter word count and any notes."
                 HorizontalOptions="Center" />
 
             <Label
@@ -24,6 +26,7 @@
                 SemanticProperties.Description="Date" />
             
             <DatePicker
+                x:Name="datePicker"
                 HorizontalOptions="Center"/>
 
             <Button
@@ -33,47 +36,32 @@
                 Clicked="OnSubmitClicked"
                 HorizontalOptions="Center" />
 
-            <ListView x:Name="listView" HorizontalOptions="Center">
-                <ListView.Header>
-                    <Label Margin="10,0,0,0"
-                            Text="Log"
-                            Style="{StaticResource SubHeadline}"/>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="10" Margin="10" HorizontalOptions="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                
-                                <!-- Word Count -->
-                                <Label Text="Word Count: "/>
-                                <Label Grid.Column="1" Text="{Binding WordCount}" HorizontalOptions="Start"/>
-                                
-                                <!-- Word Diff -->
-                                <Label Grid.Row="1" Text="Words Written: "/>
-                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding WordDiff}" HorizontalOptions="Start"/>
-                                
-                                <!-- Date -->
-                                <Label Grid.Row="2" Text="Date: "/>
-                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding DateValue}" HorizontalOptions="Start"/>
-                                
-                                <!-- Notes -->
-                                <Label Grid.Row="3" Text="Notes: "/>
-                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding NotesValue}" HorizontalOptions="Start"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Label
+                Text="Log"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Log" />
+
+            <Grid RowDefinitions="*">
+                <ListView x:Name="listView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="*, *, *, 3*" ColumnDefinitions="Auto, *" RowSpacing="3" Margin="5,10,5,10">
+                                    <Label Text="Word Count: "/>
+                                    <Label Grid.Column="1" Text="{Binding WordCount}" HorizontalOptions="Center"/>
+                                    <Label Grid.Row="1" Text="Words Written: "/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding WordDiff}" HorizontalOptions="Center"/>
+                                    <Label Grid.Row="2" Text="Date: "/>
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding DateValue}" HorizontalOptions="Center"/>
+                                    <Label Grid.Row="3" Text="Notes: "/>
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding NotesValue}" HorizontalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
 
         </VerticalStackLayout>
     </ScrollView>
