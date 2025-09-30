@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://do4x2051a8db3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3dvd"]
+bg_color = Color(0.854902, 0.85098, 0.827451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0aha"]
+bg_color = Color(0.833908, 0.82949, 0.803053, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hm0cy"]
+bg_color = Color(0.786258, 0.780841, 0.748608, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.792458, 0.787161, 0.755615, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0sjl"]
+bg_color = Color(0.854902, 0.85098, 0.827451, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.678944, 0.678944, 0.678943, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lpmb"]
+bg_color = Color(0.854902, 0.85098, 0.827451, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 22
+Panel/styles/panel = SubResource("StyleBoxFlat_w3dvd")
+TabContainer/colors/font_outline_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/constants/icon_max_width = 100
+TabContainer/constants/icon_separation = 20
+TabContainer/font_sizes/font_size = 50
+TabContainer/styles/panel = SubResource("StyleBoxFlat_g0aha")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_hm0cy")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_l0sjl")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_2lpmb")
