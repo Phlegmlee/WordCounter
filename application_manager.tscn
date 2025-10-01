@@ -1,12 +1,22 @@
-[gd_scene format=3 uid="uid://cfbc3o8dd44dk"]
+[gd_scene load_steps=3 format=3 uid="uid://cfbc3o8dd44dk"]
 
-[node name="ApplicationManager" type="Control"]
+[ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://application_manager.gd" id="1_7p4e6"]
+[ext_resource type="Theme" uid="uid://do4x2051a8db3" path="res://themes/light-mode-theme.tres" id="1_45ls7"]
+
+[node name="ApplicationManager" type="Control" node_paths=PackedStringArray("root", "word_count_entry", "month_entry", "day_entry", "year_entry")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_45ls7")
+script = ExtResource("1_7p4e6")
+root = NodePath(".")
+word_count_entry = NodePath("TabContainer/⌂/WordCountEntry/SpinBox")
+month_entry = NodePath("TabContainer/⌂/DateEntry/Month")
+day_entry = NodePath("TabContainer/⌂/DateEntry/Day")
+year_entry = NodePath("TabContainer/⌂/DateEntry/Year")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -26,21 +36,163 @@ offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="⌂" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Label" type="Label" parent="TabContainer/⌂"]
+[node name="WordCountEntry" type="Label" parent="TabContainer/⌂"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 50.0
 grow_horizontal = 2
-text = "Enter Word Count:"
+text = "Enter Document Word Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="TabContainer/⌂/WordCountEntry"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 50.0
+offset_right = 188.0
+offset_bottom = 125.0
+grow_horizontal = 2
+max_value = 999999.0
+rounded = true
+allow_greater = true
+alignment = 1
+
+[node name="DateEntry" type="Label" parent="TabContainer/⌂"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -258.5
+offset_bottom = -219.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enter Date:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Month" type="OptionButton" parent="TabContainer/⌂/DateEntry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = 22.0
+offset_right = -22.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+selected = 0
+allow_reselect = true
+item_count = 12
+popup/item_0/text = "January"
+popup/item_0/id = 1
+popup/item_1/text = "Febuary"
+popup/item_1/id = 2
+popup/item_2/text = "March"
+popup/item_2/id = 3
+popup/item_3/text = "April"
+popup/item_3/id = 4
+popup/item_4/text = "May"
+popup/item_4/id = 5
+popup/item_5/text = "June"
+popup/item_5/id = 6
+popup/item_6/text = "July"
+popup/item_6/id = 7
+popup/item_7/text = "August"
+popup/item_7/id = 8
+popup/item_8/text = "September"
+popup/item_8/id = 9
+popup/item_9/text = "October"
+popup/item_9/id = 10
+popup/item_10/text = "November"
+popup/item_10/id = 11
+popup/item_11/text = "December"
+popup/item_11/id = 12
+
+[node name="Day" type="OptionButton" parent="TabContainer/⌂/DateEntry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = 22.5
+offset_right = 41.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Year" type="OptionButton" parent="TabContainer/⌂/DateEntry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 61.5
+offset_top = 22.5
+offset_right = 130.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NotesEntry" type="Label" parent="TabContainer/⌂"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -144.5
+offset_bottom = -105.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enter Notes:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="TabContainer/⌂/NotesEntry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 45.0
+offset_right = -45.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Can be left blank."
+wrap_mode = 1
+
+[node name="Enter" type="Button" parent="TabContainer/⌂"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -263.0
+offset_right = 50.5
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ACCEPT"
 
 [node name="⍞" type="Control" parent="TabContainer"]
 visible = false
@@ -48,6 +200,32 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="⚙" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="FILE" type="MenuButton" parent="TabContainer/⚙"]
+layout_mode = 1
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 109.0
+offset_bottom = 94.0
+text = "FILE"
+flat = false
+switch_on_hover = true
+item_count = 1
+popup/item_0/text = "New"
+popup/item_0/id = 0
+
+[node name="DarkMode" type="CheckButton" parent="TabContainer/⚙"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.0
+offset_top = 39.0
+offset_right = 231.0
+offset_bottom = 88.0
+grow_horizontal = 2
+text = "Dark Mode"
+
+[connection signal="toggled" from="TabContainer/⚙/DarkMode" to="." method="_on_dark_mode_toggled"]
