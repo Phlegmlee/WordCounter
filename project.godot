@@ -23,14 +23,13 @@ config/icon="uid://mc3ok2rd3vy"
 
 window/size/viewport_width=540
 window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 window/handheld/orientation=1
 window/ios/suppress_ui_gesture=false
-
-[gui]
-
-theme/custom="uid://do4x2051a8db3"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
