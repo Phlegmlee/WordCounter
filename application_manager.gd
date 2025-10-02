@@ -1,6 +1,6 @@
 extends Control
 
-#signal send_words_written(words_written)
+signal send_words_written(words_written)
 
 @export_category("GUI")
 @export var root : Control
@@ -135,7 +135,7 @@ func _get_note_string() -> String:
 func _get_words_written() -> int:
 	var current_wc = word_count_entry.value
 	var words_written = current_wc - prev_word_count
-	#send_words_written.emit(words_written)
+	send_words_written.emit(words_written)
 	return words_written
 
 

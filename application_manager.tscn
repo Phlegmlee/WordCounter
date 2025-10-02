@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfbc3o8dd44dk"]
+[gd_scene load_steps=5 format=3 uid="uid://cfbc3o8dd44dk"]
 
 [ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://application_manager.gd" id="1_7p4e6"]
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
+[ext_resource type="PackedScene" uid="uid://cxlnuyctnpxag" path="res://scenes/fun/walls.tscn" id="3_0wcup"]
+[ext_resource type="PackedScene" uid="uid://pqgpwsoawkmh" path="res://scenes/fun/spawner.tscn" id="4_wty1r"]
 
 [node name="ApplicationManager" type="Control" node_paths=PackedStringArray("root", "darkmode_toggle", "word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
 layout_mode = 3
@@ -255,5 +257,11 @@ offset_bottom = 88.0
 grow_horizontal = 2
 text = "Dark Mode"
 
+[node name="Walls" parent="." instance=ExtResource("3_0wcup")]
+
+[node name="Spawner" parent="." instance=ExtResource("4_wty1r")]
+position = Vector2(270, 0)
+
+[connection signal="send_words_written" from="." to="Spawner" method="_on_application_manager_send_words_written"]
 [connection signal="pressed" from="TabContainer/⌂/Accept" to="." method="_on_accept_pressed"]
 [connection signal="toggled" from="TabContainer/⚙/DarkMode" to="." method="_on_dark_mode_toggled"]
