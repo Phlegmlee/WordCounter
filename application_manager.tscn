@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfbc3o8dd44dk"]
+[gd_scene load_steps=5 format=3 uid="uid://cfbc3o8dd44dk"]
 
 [ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://application_manager.gd" id="1_7p4e6"]
-[ext_resource type="Theme" uid="uid://do4x2051a8db3" path="res://themes/light-mode-theme.tres" id="1_45ls7"]
+[ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
+[ext_resource type="PackedScene" uid="uid://cxlnuyctnpxag" path="res://scenes/fun/walls.tscn" id="3_0wcup"]
+[ext_resource type="PackedScene" uid="uid://pqgpwsoawkmh" path="res://scenes/fun/spawner.tscn" id="4_wty1r"]
 
-[node name="ApplicationManager" type="Control" node_paths=PackedStringArray("root", "word_count_entry", "month_entry", "day_entry", "year_entry")]
+[node name="ApplicationManager" type="Control" node_paths=PackedStringArray("root", "darkmode_toggle", "word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,10 +15,13 @@ grow_vertical = 2
 theme = ExtResource("1_45ls7")
 script = ExtResource("1_7p4e6")
 root = NodePath(".")
+darkmode_toggle = NodePath("TabContainer/⚙/DarkMode")
 word_count_entry = NodePath("TabContainer/⌂/WordCountEntry/SpinBox")
 month_entry = NodePath("TabContainer/⌂/DateEntry/Month")
 day_entry = NodePath("TabContainer/⌂/DateEntry/Day")
 year_entry = NodePath("TabContainer/⌂/DateEntry/Year")
+notes_entry = NodePath("TabContainer/⌂/NotesEntry/TextEdit")
+wc_log = NodePath("TabContainer/⍞/TextEdit")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -32,14 +37,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 100.0
-offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="⌂" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -89,10 +92,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.5
-offset_top = 22.0
-offset_right = -22.5
-offset_bottom = 53.0
+offset_left = -194.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 selected = 0
@@ -130,10 +133,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = 22.5
-offset_right = 41.5
-offset_bottom = 53.5
+offset_left = 7.0
+offset_top = 25.0
+offset_right = 49.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -144,10 +147,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 61.5
-offset_top = 22.5
-offset_right = 130.5
-offset_bottom = 53.5
+offset_left = 84.0
+offset_top = 25.0
+offset_right = 153.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -179,7 +182,7 @@ grow_vertical = 2
 placeholder_text = "Can be left blank."
 wrap_mode = 1
 
-[node name="Enter" type="Button" parent="TabContainer/⌂"]
+[node name="Accept" type="Button" parent="TabContainer/⌂"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -199,7 +202,33 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
+[node name="Label" type="Label" parent="TabContainer/⍞"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "LOG:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="TabContainer/⍞"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 42.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "empty"
+editable = false
+wrap_mode = 1
+
 [node name="⚙" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -228,4 +257,11 @@ offset_bottom = 88.0
 grow_horizontal = 2
 text = "Dark Mode"
 
+[node name="Walls" parent="." instance=ExtResource("3_0wcup")]
+
+[node name="Spawner" parent="." instance=ExtResource("4_wty1r")]
+position = Vector2(270, 0)
+
+[connection signal="send_words_written" from="." to="Spawner" method="_on_application_manager_send_words_written"]
+[connection signal="pressed" from="TabContainer/⌂/Accept" to="." method="_on_accept_pressed"]
 [connection signal="toggled" from="TabContainer/⚙/DarkMode" to="." method="_on_dark_mode_toggled"]
