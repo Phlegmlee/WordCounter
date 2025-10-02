@@ -49,6 +49,7 @@ func _ready() -> void:
 	_theme_check()
 	_file_check_create()
 	_load_data()
+	print(OS.get_data_dir())
 
 
 
@@ -64,8 +65,8 @@ func _theme_check() -> void:
 
 
 func _file_check_create() -> void:
-	if !FileAccess.file_exists("wc.txt"):
-		var wc_file = FileAccess.open("wc.txt", FileAccess.WRITE)
+	if !FileAccess.file_exists("user://wc.txt"):
+		var wc_file = FileAccess.open("user://wc.txt", FileAccess.WRITE)
 		wc_file.close()
 
 
@@ -73,7 +74,7 @@ func _file_check_create() -> void:
 func _load_data() -> void:
 	_populate_date()
 	
-	var wc_file = FileAccess.open("wc.txt", FileAccess.READ)
+	var wc_file = FileAccess.open("user://wc.txt", FileAccess.READ)
 	
 	var log_contents = wc_file.get_as_text()
 	if log_contents != "":
@@ -101,7 +102,7 @@ func _get_previous_word_count(log_cont) -> void:
 
 
 func _save_data() -> void:
-	var wc_file = FileAccess.open("wc.txt", FileAccess.READ_WRITE)
+	var wc_file = FileAccess.open("user://wc.txt", FileAccess.READ_WRITE)
 	
 	save_data = [_get_word_count_string(), _get_words_written_string(), _get_date_string(), _get_note_string()]
 	
