@@ -240,7 +240,7 @@ text = "FILE"
 flat = false
 switch_on_hover = true
 item_count = 1
-popup/item_0/text = "New"
+popup/item_0/text = "Coming Soon"
 popup/item_0/id = 0
 
 [node name="DarkMode" type="CheckButton" parent="TabContainer/⚙"]
