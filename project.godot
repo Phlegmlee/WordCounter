@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="WordCounter"
+config/description="WordCounter Application, track manuscript word count, make notes."
+config/version="1.0.0"
+config/tags=PackedStringArray("application")
+run/main_scene="uid://cfbc3o8dd44dk"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.72549, 0.72549, 0.72549, 1)
+boot_splash/image="uid://encqnm54873i"
+config/icon="uid://mc3ok2rd3vy"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+window/handheld/orientation=1
+window/ios/suppress_ui_gesture=false
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

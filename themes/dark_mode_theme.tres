@@ -1,0 +1,69 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://blumm687felup"]
+
+[ext_resource type="StyleBox" uid="uid://cerdbvog4lo8h" path="res://themes/button_hover_style_dark.tres" id="1_3118h"]
+[ext_resource type="StyleBox" uid="uid://dmlicbuf7h43b" path="res://themes/button_hover_style.tres" id="1_a40h4"]
+[ext_resource type="StyleBox" uid="uid://bjyruk07161ui" path="res://themes/button_normal_style_dark.tres" id="2_1w1fw"]
+[ext_resource type="StyleBox" uid="uid://b7wkin5dijk5d" path="res://themes/button_normal_style.tres" id="2_4vtne"]
+[ext_resource type="StyleBox" uid="uid://byious3v0hne2" path="res://themes/button_selected_style.tres" id="3_1w1fw"]
+[ext_resource type="StyleBox" uid="uid://bouhar1vs814q" path="res://themes/button_selected_style_dark.tres" id="3_3118h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a40h4"]
+bg_color = Color(0.129444, 0.126616, 0.110297, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vtne"]
+bg_color = Color(0.118219, 0.11556, 0.100214, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3118h"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[resource]
+Button/font_sizes/font_size = 28
+Button/styles/hover = ExtResource("1_3118h")
+Button/styles/normal = ExtResource("2_1w1fw")
+Button/styles/pressed = ExtResource("3_3118h")
+CheckButton/constants/h_separation = 20
+Label/font_sizes/font_size = 28
+MenuBar/font_sizes/font_size = 28
+MenuButton/colors/font_color = Color(0, 0, 0, 1)
+MenuButton/font_sizes/font_size = 28
+MenuButton/styles/hover = ExtResource("1_a40h4")
+MenuButton/styles/normal = ExtResource("2_4vtne")
+MenuButton/styles/pressed = ExtResource("3_1w1fw")
+Panel/styles/panel = SubResource("StyleBoxFlat_a40h4")
+SpinBox/colors/down_disabled_icon_modulate = Color(0.233926, 0.233925, 0.233925, 0.5)
+SpinBox/colors/down_hover_icon_modulate = Color(0.86683, 0.86683, 0.86683, 1)
+SpinBox/colors/down_icon_modulate = Color(0, 0, 0, 1)
+SpinBox/colors/down_pressed_icon_modulate = Color(0.341176, 0.341176, 0.341176, 1)
+SpinBox/colors/up_disabled_icon_modulate = Color(0.235294, 0.235294, 0.235294, 0.501961)
+SpinBox/colors/up_hover_icon_modulate = Color(0.866667, 0.866667, 0.866667, 1)
+SpinBox/colors/up_icon_modulate = Color(0, 0, 0, 1)
+SpinBox/colors/up_pressed_icon_modulate = Color(0.342205, 0.342207, 0.342208, 1)
+SpinBox/constants/buttons_vertical_separation = 20
+SpinBox/constants/buttons_width = 50
+SpinBox/constants/field_and_buttons_separation = 1
+TabContainer/constants/icon_max_width = 100
+TabContainer/constants/icon_separation = 20
+TabContainer/font_sizes/font_size = 50
+TabContainer/styles/panel = SubResource("StyleBoxFlat_4vtne")
+TabContainer/styles/tab_hovered = ExtResource("1_3118h")
+TabContainer/styles/tab_selected = ExtResource("3_3118h")
+TabContainer/styles/tab_unselected = ExtResource("2_1w1fw")
+TextEdit/font_sizes/font_size = 22
+TextEdit/styles/normal = SubResource("StyleBoxFlat_3118h")

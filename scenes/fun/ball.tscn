@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://corfayk4rv08o"]
+
+[ext_resource type="Script" uid="uid://dikf22n7mxuh3" path="res://scenes/fun/ball.gd" id="1_r470r"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_chjv2"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45ls7"]
+
+[sub_resource type="Gradient" id="Gradient_45ls7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.113725, 0.329412, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0wcup"]
+gradient = SubResource("Gradient_45ls7")
+width = 10
+height = 10
+
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("timer")]
+physics_material_override = SubResource("PhysicsMaterial_chjv2")
+script = ExtResource("1_r470r")
+timer = NodePath("Timer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_45ls7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_0wcup")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
