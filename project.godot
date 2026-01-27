@@ -12,7 +12,7 @@ config_version=5
 
 config/name="WordCounter"
 config/description="WordCounter Application, track manuscript word count, make notes."
-config/version="1.0.0"
+config/version="1.0.1"
 config/tags=PackedStringArray("application")
 run/main_scene="uid://cfbc3o8dd44dk"
 config/features=PackedStringArray("4.5", "GL Compatibility")

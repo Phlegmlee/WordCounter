@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfbc3o8dd44dk"]
+[gd_scene load_steps=4 format=3 uid="uid://cfbc3o8dd44dk"]
 
 [ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://application_manager.gd" id="1_7p4e6"]
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
+[ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://tab_manager.gd" id="3_0wcup"]
 
 [node name="ApplicationManager" type="Control" node_paths=PackedStringArray("root", "darkmode_toggle", "word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
 layout_mode = 3
@@ -13,13 +14,13 @@ grow_vertical = 2
 theme = ExtResource("1_45ls7")
 script = ExtResource("1_7p4e6")
 root = NodePath(".")
-darkmode_toggle = NodePath("TabContainer/⚙/DarkMode")
-word_count_entry = NodePath("TabContainer/⌂/WordCountEntry/SpinBox")
-month_entry = NodePath("TabContainer/⌂/DateEntry/Month")
-day_entry = NodePath("TabContainer/⌂/DateEntry/Day")
-year_entry = NodePath("TabContainer/⌂/DateEntry/Year")
-notes_entry = NodePath("TabContainer/⌂/NotesEntry/TextEdit")
-wc_log = NodePath("TabContainer/⍞/TextEdit")
+darkmode_toggle = NodePath("TabContainer/Settings/DarkMode")
+word_count_entry = NodePath("TabContainer/Home/WordCountEntry/SpinBox")
+month_entry = NodePath("TabContainer/Home/DateEntry/Month")
+day_entry = NodePath("TabContainer/Home/DateEntry/Day")
+year_entry = NodePath("TabContainer/Home/DateEntry/Year")
+notes_entry = NodePath("TabContainer/Home/NotesEntry/TextEdit")
+wc_log = NodePath("TabContainer/Log/TextEdit")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -37,14 +38,17 @@ anchor_bottom = 1.0
 offset_top = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 18
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
+script = ExtResource("3_0wcup")
 
-[node name="⌂" type="Control" parent="TabContainer"]
+[node name="Home" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="WordCountEntry" type="Label" parent="TabContainer/⌂"]
+[node name="WordCountEntry" type="Label" parent="TabContainer/Home"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -54,7 +58,7 @@ text = "Enter Document Word Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="TabContainer/⌂/WordCountEntry"]
+[node name="SpinBox" type="SpinBox" parent="TabContainer/Home/WordCountEntry"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -69,7 +73,7 @@ rounded = true
 allow_greater = true
 alignment = 1
 
-[node name="DateEntry" type="Label" parent="TabContainer/⌂"]
+[node name="DateEntry" type="Label" parent="TabContainer/Home"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -83,7 +87,7 @@ text = "Enter Date:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Month" type="OptionButton" parent="TabContainer/⌂/DateEntry"]
+[node name="Month" type="OptionButton" parent="TabContainer/Home/DateEntry"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -124,7 +128,7 @@ popup/item_10/id = 11
 popup/item_11/text = "December"
 popup/item_11/id = 12
 
-[node name="Day" type="OptionButton" parent="TabContainer/⌂/DateEntry"]
+[node name="Day" type="OptionButton" parent="TabContainer/Home/DateEntry"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -138,7 +142,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Year" type="OptionButton" parent="TabContainer/⌂/DateEntry"]
+[node name="Year" type="OptionButton" parent="TabContainer/Home/DateEntry"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -152,7 +156,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NotesEntry" type="Label" parent="TabContainer/⌂"]
+[node name="NotesEntry" type="Label" parent="TabContainer/Home"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -166,7 +170,7 @@ text = "Enter Notes:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/⌂/NotesEntry"]
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Home/NotesEntry"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,7 +184,7 @@ grow_vertical = 2
 placeholder_text = "Can be left blank."
 wrap_mode = 1
 
-[node name="Accept" type="Button" parent="TabContainer/⌂"]
+[node name="Accept" type="Button" parent="TabContainer/Home"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -195,12 +199,12 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "ACCEPT"
 
-[node name="⍞" type="Control" parent="TabContainer"]
+[node name="Log" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="TabContainer/⍞"]
+[node name="Label" type="Label" parent="TabContainer/Log"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -210,7 +214,7 @@ text = "LOG:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/⍞"]
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Log"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -225,12 +229,11 @@ placeholder_text = "empty"
 editable = false
 wrap_mode = 1
 
-[node name="⚙" type="Control" parent="TabContainer"]
-visible = false
+[node name="Settings" type="Control" parent="TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="FILE" type="MenuButton" parent="TabContainer/⚙"]
+[node name="FILE" type="MenuButton" parent="TabContainer/Settings"]
 layout_mode = 1
 offset_left = 35.0
 offset_top = 35.0
@@ -243,7 +246,7 @@ item_count = 1
 popup/item_0/text = "Coming Soon"
 popup/item_0/id = 0
 
-[node name="DarkMode" type="CheckButton" parent="TabContainer/⚙"]
+[node name="DarkMode" type="CheckButton" parent="TabContainer/Settings"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -255,5 +258,5 @@ offset_bottom = 88.0
 grow_horizontal = 2
 text = "Dark Mode"
 
-[connection signal="pressed" from="TabContainer/⌂/Accept" to="." method="_on_accept_pressed"]
-[connection signal="toggled" from="TabContainer/⚙/DarkMode" to="." method="_on_dark_mode_toggled"]
+[connection signal="pressed" from="TabContainer/Home/Accept" to="." method="_on_accept_pressed"]
+[connection signal="toggled" from="TabContainer/Settings/DarkMode" to="." method="_on_dark_mode_toggled"]
