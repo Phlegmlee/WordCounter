@@ -49,7 +49,7 @@ func _ready() -> void:
 	_theme_check()
 	_file_check_create()
 	_load_data()
-	print(OS.get_data_dir())
+	#print(OS.get_user_data_dir())
 
 
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cfbc3o8dd44dk"]
 
-[ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://application_manager.gd" id="1_7p4e6"]
+[ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://scripts/application_manager.gd" id="1_7p4e6"]
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
-[ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://tab_manager.gd" id="3_0wcup"]
+[ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://scripts/tab_manager.gd" id="3_0wcup"]
 
 [node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("root", "darkmode_toggle", "word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
 layout_mode = 3
@@ -40,10 +40,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 18
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 script = ExtResource("3_0wcup")
 
 [node name="Home" type="Control" parent="TabContainer" unique_id=2213274]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -229,7 +230,6 @@ editable = false
 wrap_mode = 1
 
 [node name="Settings" type="Control" parent="TabContainer" unique_id=2142698076]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -257,6 +257,11 @@ offset_right = 231.0
 offset_bottom = 88.0
 grow_horizontal = 2
 text = "Dark Mode"
+
+[node name="version_label" type="Label" parent="TabContainer/Settings" unique_id=719492378]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 39.0
 
 [connection signal="pressed" from="TabContainer/Home/Accept" to="." method="_on_accept_pressed"]
 [connection signal="toggled" from="TabContainer/Settings/DarkMode" to="." method="_on_dark_mode_toggled"]
