@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfbc3o8dd44dk"]
+[gd_scene format=3 uid="uid://cfbc3o8dd44dk"]
 
 [ext_resource type="Script" uid="uid://c48bnvanmxqfn" path="res://application_manager.gd" id="1_7p4e6"]
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
 [ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://tab_manager.gd" id="3_0wcup"]
 
-[node name="ApplicationManager" type="Control" node_paths=PackedStringArray("root", "darkmode_toggle", "word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
+[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("root", "darkmode_toggle", "word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ year_entry = NodePath("TabContainer/Home/DateEntry/Year")
 notes_entry = NodePath("TabContainer/Home/NotesEntry/TextEdit")
 wc_log = NodePath("TabContainer/Log/TextEdit")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=883321058]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1148736392]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,15 +40,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 18
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 script = ExtResource("3_0wcup")
 
-[node name="Home" type="Control" parent="TabContainer"]
-visible = false
+[node name="Home" type="Control" parent="TabContainer" unique_id=2213274]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="WordCountEntry" type="Label" parent="TabContainer/Home"]
+[node name="WordCountEntry" type="Label" parent="TabContainer/Home" unique_id=403410174]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -58,7 +57,7 @@ text = "Enter Document Word Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="TabContainer/Home/WordCountEntry"]
+[node name="SpinBox" type="SpinBox" parent="TabContainer/Home/WordCountEntry" unique_id=1449706042]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -73,7 +72,7 @@ rounded = true
 allow_greater = true
 alignment = 1
 
-[node name="DateEntry" type="Label" parent="TabContainer/Home"]
+[node name="DateEntry" type="Label" parent="TabContainer/Home" unique_id=1916612055]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -87,7 +86,7 @@ text = "Enter Date:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Month" type="OptionButton" parent="TabContainer/Home/DateEntry"]
+[node name="Month" type="OptionButton" parent="TabContainer/Home/DateEntry" unique_id=1615055129]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,7 +127,7 @@ popup/item_10/id = 11
 popup/item_11/text = "December"
 popup/item_11/id = 12
 
-[node name="Day" type="OptionButton" parent="TabContainer/Home/DateEntry"]
+[node name="Day" type="OptionButton" parent="TabContainer/Home/DateEntry" unique_id=1832338847]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,7 +141,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Year" type="OptionButton" parent="TabContainer/Home/DateEntry"]
+[node name="Year" type="OptionButton" parent="TabContainer/Home/DateEntry" unique_id=563659052]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,7 +155,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NotesEntry" type="Label" parent="TabContainer/Home"]
+[node name="NotesEntry" type="Label" parent="TabContainer/Home" unique_id=1521540444]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -170,7 +169,7 @@ text = "Enter Notes:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/Home/NotesEntry"]
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Home/NotesEntry" unique_id=892247594]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,7 +183,7 @@ grow_vertical = 2
 placeholder_text = "Can be left blank."
 wrap_mode = 1
 
-[node name="Accept" type="Button" parent="TabContainer/Home"]
+[node name="Accept" type="Button" parent="TabContainer/Home" unique_id=1613502447]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -199,12 +198,12 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "ACCEPT"
 
-[node name="Log" type="Control" parent="TabContainer"]
+[node name="Log" type="Control" parent="TabContainer" unique_id=2032461943]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="TabContainer/Log"]
+[node name="Label" type="Label" parent="TabContainer/Log" unique_id=118379713]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -214,7 +213,7 @@ text = "LOG:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/Log"]
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Log" unique_id=776776456]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,11 +228,12 @@ placeholder_text = "empty"
 editable = false
 wrap_mode = 1
 
-[node name="Settings" type="Control" parent="TabContainer"]
+[node name="Settings" type="Control" parent="TabContainer" unique_id=2142698076]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="FILE" type="MenuButton" parent="TabContainer/Settings"]
+[node name="FILE" type="MenuButton" parent="TabContainer/Settings" unique_id=1710686115]
 layout_mode = 1
 offset_left = 35.0
 offset_top = 35.0
@@ -246,7 +246,7 @@ item_count = 1
 popup/item_0/text = "Coming Soon"
 popup/item_0/id = 0
 
-[node name="DarkMode" type="CheckButton" parent="TabContainer/Settings"]
+[node name="DarkMode" type="CheckButton" parent="TabContainer/Settings" unique_id=1036333748]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
