@@ -1,10 +1,5 @@
 extends Control
 
-#signal send_words_written(words_written)
-
-@export_category("GUI")
-@export var root : Control
-@export var darkmode_toggle : CheckButton
 
 @export_category("Entries")
 @export var word_count_entry : SpinBox
@@ -15,9 +10,6 @@ extends Control
 
 @export_category("Log")
 @export var wc_log : TextEdit
-
-var light_theme = preload("res://themes/light-mode-theme.tres")
-var dark_theme = preload("res://themes/dark_mode_theme.tres")
 
 var date : Dictionary = {}
 
@@ -46,22 +38,9 @@ var save_data = PackedStringArray([word_count_string, words_written_string, date
 
 
 func _ready() -> void:
-	_theme_check()
 	_file_check_create()
 	_load_data()
 	#print(OS.get_user_data_dir())
-
-
-
-func _theme_check() -> void:
-	if DisplayServer.is_dark_mode_supported():
-		if DisplayServer.is_dark_mode():
-			root.theme = dark_theme
-			darkmode_toggle.button_pressed = true
-		else:
-			root.theme = light_theme
-			darkmode_toggle.button_pressed = false
-
 
 
 func _file_check_create() -> void:
@@ -166,14 +145,6 @@ func _populate_date() -> void:
 		year_entry.add_item(str(year), year)
 	
 	year_entry.selected = year_entry.get_item_index(date.year)
-
-
-
-func _on_dark_mode_toggled(toggled_on):
-	if toggled_on:
-		root.theme = dark_theme
-	else:
-		root.theme = light_theme
 
 
 
