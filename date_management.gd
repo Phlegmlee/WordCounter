@@ -1,10 +1,6 @@
 # Date Management
 extends Control
 
-# TODO: Handle days per month when month selection is changed. For example, Febuary only has 28 or 29 days
-#		and if the month is changed the days are wrong.
-#		CONCEPT: when month changed -> update days
-
 @onready var _month_entry : OptionButton = %Month
 @onready var _day_entry : OptionButton = %Day
 @onready var _year_entry : OptionButton = %Year
@@ -35,22 +31,30 @@ func _ready() -> void:
 
 func _populate_date() -> void:
 	date = Time.get_datetime_dict_from_system()
-	
 	_month_entry.selected = _month_entry.get_item_index(date.month)
 	
-	# Add days based on month.
-	for day in days_per_month[str(date.month)]:
-		day = day + 1
-		_day_entry.add_item(str(day), day)
-	
+	_populate_days()
 	_day_entry.selected = _day_entry.get_item_index(date.day)
 	
 	# Add years based on current year.
-	for year in 11:
-		year += date.year - 1
+	for year in 12:
+		year += date.year - 2
 		_year_entry.add_item(str(year), year)
 	
 	_year_entry.selected = _year_entry.get_item_index(date.year)
+
+
+func _populate_days() -> void:
+	_day_entry.clear()
+	var current_month = _month_entry.selected + 1
+	# populate days
+	for day in days_per_month[str(current_month)]:
+		day = day + 1
+		_day_entry.add_item(str(day), day)
+
+
+func _on_month_changed(_index: int) -> void:
+	_populate_days()
 
 
 func get_date_string() -> String:
