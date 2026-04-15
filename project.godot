@@ -16,9 +16,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="WordCounter"
 config/description="WordCounter Application, track manuscript word count, make notes."
-config/version="1.0.1"
+config/version="1.0.2"
 config/tags=PackedStringArray("application")
 run/main_scene="uid://cfbc3o8dd44dk"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.72549, 0.72549, 0.72549, 1)
 boot_splash/image="uid://encqnm54873i"
