@@ -4,8 +4,9 @@
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
 [ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://scripts/tab_manager.gd" id="3_0wcup"]
 [ext_resource type="Script" uid="uid://cby2x5m0kkwa" path="res://scripts/settings.gd" id="4_wty1r"]
+[ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://date_management.gd" id="4_xr7y1"]
 
-[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "month_entry", "day_entry", "year_entry", "notes_entry", "wc_log")]
+[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "wc_log")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,9 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_45ls7")
 script = ExtResource("1_7p4e6")
 word_count_entry = NodePath("TabContainer/Home/WordCountEntry/SpinBox")
-month_entry = NodePath("TabContainer/Home/DateEntry/Month")
-day_entry = NodePath("TabContainer/Home/DateEntry/Day")
-year_entry = NodePath("TabContainer/Home/DateEntry/Year")
+date_entry = NodePath("TabContainer/Home/DateEntry")
 notes_entry = NodePath("TabContainer/Home/NotesEntry/TextEdit")
 wc_log = NodePath("TabContainer/Log/TextEdit")
 
@@ -85,8 +84,10 @@ grow_vertical = 2
 text = "Enter Date:"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("4_xr7y1")
 
 [node name="Month" type="OptionButton" parent="TabContainer/Home/DateEntry" unique_id=1615055129]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,6 +129,7 @@ popup/item_11/text = "December"
 popup/item_11/id = 12
 
 [node name="Day" type="OptionButton" parent="TabContainer/Home/DateEntry" unique_id=1832338847]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,6 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Year" type="OptionButton" parent="TabContainer/Home/DateEntry" unique_id=563659052]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
