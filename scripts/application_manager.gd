@@ -25,6 +25,7 @@ func _ready() -> void:
 	#print(OS.get_user_data_dir())
 
 
+
 func _file_check_create() -> void:
 	if !FileAccess.file_exists("user://wc.txt"):
 		var wc_file = FileAccess.open("user://wc.txt", FileAccess.WRITE)
@@ -77,10 +78,6 @@ func _get_word_count_string() -> String:
 
 
 
-
-
-
-
 func _get_note_string() -> String:
 	var note = notes_string + notes_entry.text.strip_edges()
 	return note
@@ -99,6 +96,7 @@ func _get_words_written_string() -> String:
 	var ww = _get_words_written()
 	var ww_string = words_written_string + str(ww)
 	return ww_string
+
 
 
 func _on_accept_pressed():
