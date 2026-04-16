@@ -7,8 +7,9 @@
 [ext_resource type="Script" uid="uid://b6esspmb5anok" path="res://word_count_manager.gd" id="4_xqv7e"]
 [ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://date_management.gd" id="4_xr7y1"]
 [ext_resource type="Script" uid="uid://bix5kpnpu370j" path="res://notes_management.gd" id="6_y4a2y"]
+[ext_resource type="Script" uid="uid://duh5mmfw6cgvp" path="res://log_management.gd" id="7_qne7r"]
 
-[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry")]
+[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "log_management")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +21,7 @@ script = ExtResource("1_7p4e6")
 word_count_entry = NodePath("TabContainer/Home/WordCountEntry")
 date_entry = NodePath("TabContainer/Home/DateEntry")
 notes_entry = NodePath("TabContainer/Home/NotesEntry")
+log_management = NodePath("TabContainer/Log")
 
 [node name="Panel" type="Panel" parent="." unique_id=883321058]
 layout_mode = 1
@@ -208,6 +210,7 @@ text = "ACCEPT"
 [node name="Log" type="Control" parent="TabContainer" unique_id=2032461943]
 visible = false
 layout_mode = 2
+script = ExtResource("7_qne7r")
 metadata/_tab_index = 1
 
 [node name="Label" type="Label" parent="TabContainer/Log" unique_id=118379713]

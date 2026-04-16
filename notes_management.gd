@@ -2,13 +2,9 @@
 extends Control
 
 @onready var _note_text: TextEdit = %NoteText
-@onready var _text_log : TextEdit = %TextLog
 
 var _notes_string : String = " Notes: "
 
-
-func set_text_log(content : String) -> void:
-	_text_log.text = content
 
 
 func get_note_string() -> String:

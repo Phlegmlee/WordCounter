@@ -5,6 +5,7 @@ extends Control
 @export var word_count_entry : Label
 @export var date_entry : Label
 @export var notes_entry : Label
+@export var log_management : Control
 
 var save_data = PackedStringArray([])
 
@@ -29,7 +30,7 @@ func _load_data() -> void:
 	
 	var log_contents = wc_file.get_as_text()
 	if log_contents != "":
-		notes_entry.set_text_log(log_contents)
+		log_management.set_text_log(log_contents)
 		word_count_entry.get_previous_word_count(log_contents)
 	
 	wc_file.close()
