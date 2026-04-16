@@ -12,12 +12,15 @@ var words_written_string : String = " Words Written: "
 func _get_words_written() -> int:
 	var current_wc = _spin_box.value
 	var words_written = current_wc - prev_word_count
-	#send_words_written.emit(words_written)
 	return words_written
 
 
 
 func get_previous_word_count(log_cont) -> void:
+	if not log_cont:
+		_spin_box.value = 0
+		prev_word_count = 0
+	
 	var split_lines = log_cont.split("\n")
 	var last_line = split_lines[split_lines.size() - 2]
 	var split_last = last_line.split(",")

@@ -8,8 +8,10 @@
 [ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://scripts/date_management.gd" id="4_xr7y1"]
 [ext_resource type="Script" uid="uid://bix5kpnpu370j" path="res://scripts/notes_management.gd" id="6_y4a2y"]
 [ext_resource type="Script" uid="uid://duh5mmfw6cgvp" path="res://scripts/log_management.gd" id="7_qne7r"]
+[ext_resource type="Script" uid="uid://baple4wvv3xvk" path="res://scripts/file_manager.gd" id="9_333hc"]
+[ext_resource type="Script" uid="uid://b4dnwbucts1ir" path="res://scripts/settings_manager.gd" id="10_0tdh0"]
 
-[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "log_management")]
+[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "log_management", "file_manager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +24,7 @@ word_count_entry = NodePath("TabContainer/Home/WordCountEntry")
 date_entry = NodePath("TabContainer/Home/DateEntry")
 notes_entry = NodePath("TabContainer/Home/NotesEntry")
 log_management = NodePath("TabContainer/Log")
+file_manager = NodePath("FileManager")
 
 [node name="Panel" type="Panel" parent="." unique_id=883321058]
 layout_mode = 1
@@ -41,10 +44,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 18
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 script = ExtResource("3_0wcup")
 
 [node name="Home" type="Control" parent="TabContainer" unique_id=2213274]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -239,15 +243,16 @@ placeholder_text = "empty"
 editable = false
 wrap_mode = 1
 
-[node name="Settings" type="Control" parent="TabContainer" unique_id=2142698076 node_paths=PackedStringArray("root", "darkmode_toggle")]
-visible = false
+[node name="Settings" type="Control" parent="TabContainer" unique_id=2142698076 node_paths=PackedStringArray("root", "file_manager", "settings_manager")]
 layout_mode = 2
 script = ExtResource("4_wty1r")
 root = NodePath("../..")
-darkmode_toggle = NodePath("DarkMode")
+file_manager = NodePath("../../FileManager")
+settings_manager = NodePath("../../SettingsManager")
 metadata/_tab_index = 2
 
 [node name="FILE" type="MenuButton" parent="TabContainer/Settings" unique_id=1710686115]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 35.0
 offset_top = 35.0
@@ -256,11 +261,16 @@ offset_bottom = 94.0
 text = "FILE"
 flat = false
 switch_on_hover = true
-item_count = 1
-popup/item_0/text = "Coming Soon"
+item_count = 3
+popup/item_0/text = "New"
 popup/item_0/id = 0
+popup/item_1/text = "Load"
+popup/item_1/id = 1
+popup/item_2/text = "Open Dir"
+popup/item_2/id = 2
 
 [node name="DarkMode" type="CheckButton" parent="TabContainer/Settings" unique_id=1036333748]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -270,6 +280,7 @@ offset_top = 39.0
 offset_right = 231.0
 offset_bottom = 88.0
 grow_horizontal = 2
+button_pressed = true
 text = "Dark Mode"
 
 [node name="version_label" type="Label" parent="TabContainer/Settings" unique_id=719492378]
@@ -284,6 +295,18 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FileManager" type="Control" parent="." unique_id=33334038 node_paths=PackedStringArray("settings_manager")]
+anchors_preset = 0
+offset_top = 136.0
+offset_right = 40.0
+offset_bottom = 176.0
+script = ExtResource("9_333hc")
+settings_manager = NodePath("../SettingsManager")
+
+[node name="SettingsManager" type="Node" parent="." unique_id=906589886]
+unique_name_in_owner = true
+script = ExtResource("10_0tdh0")
 
 [connection signal="item_selected" from="TabContainer/Home/DateEntry/Month" to="TabContainer/Home/DateEntry" method="_on_month_changed"]
 [connection signal="pressed" from="TabContainer/Home/Accept" to="." method="_on_accept_pressed"]
