@@ -4,10 +4,10 @@
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
 [ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://scripts/tab_manager.gd" id="3_0wcup"]
 [ext_resource type="Script" uid="uid://cby2x5m0kkwa" path="res://scripts/settings.gd" id="4_wty1r"]
-[ext_resource type="Script" uid="uid://b6esspmb5anok" path="res://word_count_manager.gd" id="4_xqv7e"]
-[ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://date_management.gd" id="4_xr7y1"]
-[ext_resource type="Script" uid="uid://bix5kpnpu370j" path="res://notes_management.gd" id="6_y4a2y"]
-[ext_resource type="Script" uid="uid://duh5mmfw6cgvp" path="res://log_management.gd" id="7_qne7r"]
+[ext_resource type="Script" uid="uid://b6esspmb5anok" path="res://scripts/word_count_manager.gd" id="4_xqv7e"]
+[ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://scripts/date_management.gd" id="4_xr7y1"]
+[ext_resource type="Script" uid="uid://bix5kpnpu370j" path="res://scripts/notes_management.gd" id="6_y4a2y"]
+[ext_resource type="Script" uid="uid://duh5mmfw6cgvp" path="res://scripts/log_management.gd" id="7_qne7r"]
 
 [node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "log_management")]
 layout_mode = 3
