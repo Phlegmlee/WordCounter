@@ -2,17 +2,15 @@
 class_name FileManager
 extends Control
 
-# TODO: Have a settings config file that saves: 
-#			FileState status
-#			user file name
-
 signal file_changed
 
 @export var settings_manager : SettingsManager
+@onready var current_project_name : Label = %FileName
+@onready var project_display_string : String = BASE_FILE_NAME.get_basename()
 
 const USER_FILE_PREFIX : String = "user://"
-const BASE_FILE_NAME : String = "wc.txt"
-var user_file_name : String = "wc_userfile.txt"
+const BASE_FILE_NAME : String = "WordCounter.txt"
+var user_file_name : String = "your_userfile.txt"
 var current_file : String = USER_FILE_PREFIX + BASE_FILE_NAME
 
 enum FileState {
@@ -29,7 +27,10 @@ func _ready() -> void:
 		user_file_name = settings_manager.get_setting("user_file_name")
 	if settings_manager.has_setting("current_file"):
 		current_file = settings_manager.get_setting("current_file")
+	if settings_manager.has_setting("project_name"):
+		project_display_string = settings_manager.get_setting("project_name")
 	
+	current_project_name.text = project_display_string
 	
 	_file_check_create(current_state)
 
@@ -82,13 +83,17 @@ func _set_current_state() -> void:
 	
 	settings_manager.add_setting("file_state", current_state)
 	settings_manager.add_setting("current_file", current_file)
+	settings_manager.add_setting("project_name", project_display_string)
+	current_project_name.text = project_display_string
 
 
 func _on_file_selected(status : bool, selected_paths : PackedStringArray, _selected_filter_index : int) -> void:
 	if not status:
 		return
 	
+	
 	current_file = USER_FILE_PREFIX + selected_paths[0].get_file()
+	project_display_string = selected_paths[0].get_file().get_basename()
 	_set_current_state()
 	file_changed.emit()
 
@@ -99,5 +104,6 @@ func _on_new_file_created(status : bool, selected_paths : PackedStringArray, _se
 	
 	current_file = USER_FILE_PREFIX + selected_paths[0].get_file()
 	_create_file(current_file, true)
+	project_display_string = selected_paths[0].get_file().get_basename()
 	_set_current_state()
 	file_changed.emit()
