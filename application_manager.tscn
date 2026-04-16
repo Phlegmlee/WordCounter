@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://cby2x5m0kkwa" path="res://scripts/settings.gd" id="4_wty1r"]
 [ext_resource type="Script" uid="uid://b6esspmb5anok" path="res://word_count_manager.gd" id="4_xqv7e"]
 [ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://date_management.gd" id="4_xr7y1"]
+[ext_resource type="Script" uid="uid://bix5kpnpu370j" path="res://notes_management.gd" id="6_y4a2y"]
 
-[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "wc_log")]
+[node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,8 +19,7 @@ theme = ExtResource("1_45ls7")
 script = ExtResource("1_7p4e6")
 word_count_entry = NodePath("TabContainer/Home/WordCountEntry")
 date_entry = NodePath("TabContainer/Home/DateEntry")
-notes_entry = NodePath("TabContainer/Home/NotesEntry/TextEdit")
-wc_log = NodePath("TabContainer/Log/TextEdit")
+notes_entry = NodePath("TabContainer/Home/NotesEntry")
 
 [node name="Panel" type="Panel" parent="." unique_id=883321058]
 layout_mode = 1
@@ -173,8 +173,10 @@ grow_vertical = 2
 text = "Enter Notes:"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("6_y4a2y")
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/Home/NotesEntry" unique_id=892247594]
+[node name="NoteText" type="TextEdit" parent="TabContainer/Home/NotesEntry" unique_id=892247594]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,7 +220,8 @@ text = "LOG:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/Log" unique_id=776776456]
+[node name="TextLog" type="TextEdit" parent="TabContainer/Log" unique_id=776776456]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
