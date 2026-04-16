@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://blumm687felup" path="res://themes/dark_mode_theme.tres" id="1_45ls7"]
 [ext_resource type="Script" uid="uid://mru5w1mruvv6" path="res://scripts/tab_manager.gd" id="3_0wcup"]
 [ext_resource type="Script" uid="uid://cby2x5m0kkwa" path="res://scripts/settings.gd" id="4_wty1r"]
+[ext_resource type="Script" uid="uid://b6esspmb5anok" path="res://word_count_manager.gd" id="4_xqv7e"]
 [ext_resource type="Script" uid="uid://p8s1c1cp3b5m" path="res://date_management.gd" id="4_xr7y1"]
 
 [node name="ApplicationManager" type="Control" unique_id=1677307658 node_paths=PackedStringArray("word_count_entry", "date_entry", "notes_entry", "wc_log")]
@@ -15,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_45ls7")
 script = ExtResource("1_7p4e6")
-word_count_entry = NodePath("TabContainer/Home/WordCountEntry/SpinBox")
+word_count_entry = NodePath("TabContainer/Home/WordCountEntry")
 date_entry = NodePath("TabContainer/Home/DateEntry")
 notes_entry = NodePath("TabContainer/Home/NotesEntry/TextEdit")
 wc_log = NodePath("TabContainer/Log/TextEdit")
@@ -54,8 +55,10 @@ grow_horizontal = 2
 text = "Enter Document Word Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("4_xqv7e")
 
 [node name="SpinBox" type="SpinBox" parent="TabContainer/Home/WordCountEntry" unique_id=1449706042]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
